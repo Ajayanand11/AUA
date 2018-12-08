@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="main.css" type="text/css">
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+    <script>
+    
+        
+    function hide(){
+        
+        document.getElementById("date_to").style.display = "none";
+        document.getElementById("date_to_label").style.display = "none";
+    };
+        
+    function show(){
+        
+        document.getElementById("date_to").style.display = "inline-block";
+         document.getElementById("date_to_label").style.display = "inline-block";
+    }    
+        
+    
+    
+    
+    </script>
+    </head>
+
+<body>
+     <nav>
+    
+    
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        </ul>
+    
+    
+    </nav>
+    
+    <div id="banner">
+    
+    <h2>Banner</h2>
+    
+    <div id="booking">
+        
+        <h4>Flights</h4>
+        <form>
+        <div id="destination">   
+        <input type="text" id="from" name="from" placeholder="Flight from"><input type="image" id="exchange" src="exchange.png">
+        <input type="text" id="to" name="to" placeholder="Flight To">
+            <br><br>
+        </div>     
+            
+        <div id="Date">
+            
+            <input type="radio" name="dates" id="one_way" value = "one-way" onclick="hide();">One-Way
+            <input type="radio" name = "dates" id = "round_trip" value = "Round-trip" onclick="show();">Round-Trip<br><br><br>
+            <label for="date_from">Fly on:</label>
+            <input type="date" id="date_from"><br>
+            <label for="date_to" id="date_to_label">Come Back:</label>
+            <input type="date" id="date_to">
+            </div>    
+            
+        <div id="passengers">
+            <label for="adult">Adults:</label>
+            <select id="adult">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            </select><br>
+            <label for="children">Children:</label>
+            <select id="children">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            </select>
+            </div>    
+            
+        <div id="book">    
+        <input type="button" id="find_flights" value="Find options">    
+        </div>
+            </form>
+        </div>    
+        
+        
+    </div>
+    
+    </body>
+    
+    <footer>
+    
+    <div id="navigation">
+        
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        </ul>
+        </div>
+    
+    
+        
+    <div id="copy_right">
+        
+        <h3>copy right information</h3>
+        
+        </div>
+        
+        
+    <div id="About">
+        
+        <h3>About us</h3>
+        
+        </div>        
+    </footer>
+</html>
