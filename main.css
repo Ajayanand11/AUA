@@ -293,3 +293,9 @@ footer #copy_right{
 #navigation ul li{
     text-align: center;
 }
+
+@media screen and (max-width:1024px) {
+  .navigation, .date_from, .date_to {
+    width:100%;
+  }
+}
