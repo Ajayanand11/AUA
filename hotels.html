@@ -37,44 +37,118 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script>
-        $(function(){
+        $(document).ready(function(){
+            
+            $("#single_room_types").prop("disabled", true);
+            
+            $("#suite_types").prop("disabled", true);
+            
+            var isValid = true;
+            $("#full_name").focusout(function(){
+                
+                var name = $("#full_name").val();
+                
+                if(name == ""){
+                    
+                    $("#full_name").next().text("Required");
+//                    $("#full_name").select();
+                }
+            });
+            
+            $("#mobile").focusout(function(){
+            
+                var mobile = $("#mobile").val();
+            
+            if(mobile == ""){
+                
+                $("#mobile").next().text("Required");
+            }
+                
+            });
+            
+            
+            $("#Email").focusout(function(){
+            
+                var email = $("#Email").val();
+            
+            if(email == ""){
+                
+                $("#Email").next().text("Required");
+            }
+                
+            });
+            
+            
+            $("#single_room").click(function(){
+            
+            $("#suite_types").prop("disabled", true);
+            $("#single_room_types").prop("disabled", false);
+            });
+            $("#suite_room").click(function(){
+            
+            $("#single_room_types").prop("disabled", true);    
+            $("#suite_types").prop("disabled", false);
+        });
+           
             
             $("#arr_date").datepicker({
                 
                 minDate: +0
             });
-        });
         
         
-        $(function(){
-            
-            $("#no_nights").spinner({
+//        $(function(){
+                        
+            var nights = $("#no_nights").spinner({
                 
-            type:false,    
-            min: 1,
+                min: 1,
                 max: 10
             });
             
             
-//            alert(spinner.("value"));
-        });
-        
-        $(function(){
+            var adults_no = $("#adults").spinner({min: 1,
+                max: 5});
             
-            $(".drag").draggable();
-            $("#drop").droppable({
+            var adult_total = adults_no.spinner("value") * 10;
+//            $("#calc").click(function(){
+//            
+//                
+//            $("#adults").spinner({
+//                
+//                
+//                
+//            });
+            $("#children").spinner({
                 
-               drop: function(event, ui){
-                   var count = 0;
-                   count = parseInt(count);
-                       
-                       $(this).find("p").html("Dropped!!!");
-                   console.log("#drop".length);
-               } 
+                min: 1,
+                max: 5
                 
             });
+//            alert(spinner.("value"));
+//        });    
+            
+            
+        $("#calc").click(function(){
+            
+//            var adult_total = adults_no.spinner("value") * 10;
+//                
+//                $("#rates").val(adult_total);
+            
+            alert(
+           $("#arr_date").val()) 
+            alert(
+            $("#adults").spinner("value")); 
+            
+            });
+    
+            
+//            $("#rates").val(adult_total);           
         });
-
+            
+            
+        
+        
+//        });
     </script>
 </head>
 
@@ -143,10 +217,10 @@
             <input type="text" id="no_nights">
             <br>
             <label for="adults">Adults:</label>
-            <input type="number" id="adults">
+            <input id="adults">
             <br>
             <label for="children">Children:</label>
-            <input type="number" id="children">
+            <input id="children">
             <br>
             <label>Airport Transfer:</label>
             <input type="radio" name="air_transport" id="air_transport_yes" value="Yes">Yes
@@ -159,13 +233,13 @@
             <legend>Guest Info:</legend>
 
             <label for="full_name">Name:</label>
-            <input type="text" id="full_name">
+            <input type="text" id="full_name"><span>&nbsp;</span>
             <br>
             <label for="mobile">Mobile:</label>
-            <input type="text" id="mobile">
+            <input type="text" id="mobile"><span>&nbsp;</span>
             <br>
             <label for="Email">Email:</label>
-            <input type="email" id="Email">
+            <input type="email" id="Email"><span>&nbsp;</span>
         </fieldset>
 
 
@@ -177,11 +251,11 @@
             <input type="radio" name="room_type" id="single_room" value="Single Room">Single Room
             <select id="single_room_types">
 
-                <option>Single</option>
-                <option>Double</option>
-                <option>Queen</option>
-                <option>King</option>
-                <option>Twin</option>
+                <option value="1">Single</option>
+                <option value="2">Double</option>
+                <option value="3">Queen</option>
+                <option value="4">King</option>
+                <option value="5">Twin</option>
             </select>
             <br>
             <input type="radio" name="room_type" id="suite_room" value="Suite Room">Suite
@@ -200,28 +274,10 @@
         <label for="total_rates">Total Rates:</label>
         <input type="text" id="total_rates">
 
-        <input type="button" id="cou" value="count num">
-
+        <input type="button" id="calc">
+        
     </form>
 
-    <div class="drag">
-        <p>drag1</p>
-    </div>
-    <div class="drag">
-        <p>drag2</p>
-    </div>
-    <div class="drag">
-        <p>drag3</p>
-    </div>
-    <div class="drag">
-        <p>drag4</p>
-    </div>
-
-
-
-    <div id="drop">
-            <p>Drop here!</p>
-    </div>
 
 </body>
 
