@@ -405,3 +405,13 @@ footer #copy_right{
     border-bottom: 1px solid black;
     text-align: left;
 }
+
+
+@media screen and (max-width: 768px) and (min-width: 418px) {
+    .wrapper {
+        width: 563px !important;
+    }
+    label{
+        float: none !important;
+    }
+}
